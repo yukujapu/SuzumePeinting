@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SuzumePaint</title>
+    <style>
+        canvas { border: 1px solid black; margin-bottom: 10px; }
+        .toolbar, .layerControls { display: flex; justify-content: space-between; padding: 10px; }
+        button { margin-right: 5px; }
+        .layerList { list-style-type: none; padding: 0; }
+        .layerList li { margin-bottom: 5px; }
+        .layerNameInput { width: 100px; }
+    </style>
+</head>
+<body>
+    <div class="toolbar">
+        <button id="penButton">ペン</button>
+        <button id="eraserButton">消しゴム</button>
+        <button id="lassoButton">投げ縄</button>
+        <button id="undoButton">取り消し</button>
+        <button id="redoButton">やり直し</button>
+        <button id="clearCanvas">クリア</button>
+        <button id="bucketFillButton">バケツ塗り</button> <!-- バケツ塗りボタンを追加 -->
+    </div>
+    <div class="toolbarsecond">
+        <input type="color" id="colorPicker">
+        <label for="stabilizationStrength">ブラシサイズ</label>
+        <input type="number" id="brushSizeInput" min="1" max="50" value="5" style="width: 50px;">
+        <input type="range" id="brushSize" min="1" max="50" value="5">        
+        <label for="stabilizationStrength">滑らかさ</label>
+        <input type="range" id="stabilizationStrength" min="1" max="10" value="5">
+        <input type="number" id="stabilizationStrengthInput" min="1" max="10" value="5" style="width: 50px;">        
+        <button id="saveButton">PNGとして保存</button>
+        <button id="saveAsPSD">PSDとして保存</button>
+    </div>
+    <canvas id="drawingCanvas" width="800" height="600"></canvas>
+    <div class="layerControls">
+        <button id="addLayer">レイヤー追加</button>
+        <button id="deleteLayer">レイヤー削除</button>
+        <ul id="layerList" class="layerList"></ul>
+    </div>
+    <script src="app.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/psd.js"></script>
+
+</body>
+</html>
